@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قواد المغربي</title>
+    <!-- استخدام Bootstrap لتنسيق التطبيق -->
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // تهيئة المتغيرات العامة لمفاتيح API
+        window.GEMINI_KEY_1 = 'AIzaSyBR38c9cRepauGjZFivu9f2HsF_v-r-jW0';
+        window.GEMINI_KEY_2 = 'AIzaSyDPE7q8kmjELv1svMEJUHagNWD1dHFZt8c';
+        window.GEMINI_KEY_3 = 'AIzaSyDcE8HdXY9gMOWa4--6QADaHbUsB5ZaoYs';
+        window.GEMINI_KEY_4 = 'AIzaSyAfw7ztjDjfK12E1wat7mUKge24FjgkK2k';
+        window.GEMINI_KEY_5 = 'AIzaSyDD1RlFt7MsLOoMC6sYpvpp6vqJYT3R6mo';
+
+        // جلب مفاتيح API من الخادم عند تحميل الصفحة
+        fetch('/api/env-config')
+            .then(response => response.json())
+            .then(data => {
+                window.GEMINI_KEY_1 = data.GEMINI_KEY_1;
+                window.GEMINI_KEY_2 = data.GEMINI_KEY_2;
+                window.GEMINI_KEY_3 = data.GEMINI_KEY_3;
+                window.GEMINI_KEY_4 = data.GEMINI_KEY_4;
+                window.GEMINI_KEY_5 = data.GEMINI_KEY_5;
+                console.log('تم تحميل مفاتيح API من الخادم');
+            })
+            .catch(error => {
+                console.error('فشل في تحميل مفاتيح API:', error);
+            });
+    </script>
+</head>
+<body>
+    <div class="container py-4">
+        <header class="mb-4 text-center">
+            <h1 class="display-5 fw-bold">
+                <i class="fas fa-robot me-2"></i>القواد المغربي
+            </h1>
+            <p class="lead">انا اشهر نمودج قواد من نوع ذكاء الاصتناعي</p>
+        </header>
+
+        <main class="row g-4">
+            <div class="col-md-9">
+                <div class="card shadow-sm">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>هدر تحوى </span>
+                        <button id="clearHistoryBtn" class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-trash-alt me-1"></i>مسح تقود
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div id="chatMessages" class="chat-messages">
+                            <div class="text-center text-muted my-4">
+                                <div>
+                                    <i class="fas fa-comment-dots fa-3x mb-3"></i>
+                                </div>
+                                <p>هدر تحوى <br>يتعلم من فعايل ديال زبي</p>
+                            </div>
+                        </div>
+                        <div id="typingIndicator" class="typing-indicator" style="display: none;">
+                            <div class="typing-bubble"></div>
+                            <div class="typing-bubble"></div>
+                            <div class="typing-bubble"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <form id="chatForm" class="d-flex">
+                            <input type="text" id="messageInput" class="form-control me-2" placeholder="قواد : كتب فوق زبي" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- هذا هو تعليق -->
+            <div class="col-md-3">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <i class="fas fa-cog me-1"></i>الإعدادات ديال زبي
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="apiKeySelect" class="form-label">ختار تحوى</label>
+                            <select id="apiKeySelect" class="form-select">
+                                <option value="key1">نحويك </option>
+                                <option value="key2">نحيو مك</option>
+                                <option value="key3">نحوي باك</option>
+                                <option value="key4">نحوي ختك</option>
+                                <option value="random">نحويهم كلهم</option>
+                                <option value="smart" selected>تبوس زبي</option>
+                            </select>
+                        </div>
+                        
+                        <div class="card mb-3 bg-dark bg-opacity-10">
+                            <!--<div class="card-header bg-dark bg-opacity-25">وسير تحوى اش بغي دير</div>-->
+                            <div class="card-body">
+                                <!--<ul class="list-group list-group-flush bg-transparent small">
+                                    <li class="list-group-item bg-transparent border-bottom">
+                                        <strong>المفتاح 1:</strong> محادثات عامة (متوازن)
+                                    </li>
+                                    <li class="list-group-item bg-transparent border-bottom">
+                                        <strong>المفتاح 2:</strong> محادثات تقنية وحقائق (دقيق)
+                                    </li>
+                                    <li class="list-group-item bg-transparent border-bottom">
+                                        <strong>المفتاح 3:</strong> محادثات إبداعية (خلاق)
+                                    </li>
+                                    <li class="list-group-item bg-transparent">
+                                        <strong>المفتاح 4:</strong> نصائح ومساعدة (متوازن)
+                                    </li>
+                                </ul>-->
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-success">
+                            <i class="fas fa-info-circle me-1"></i>
+                            الله ينعل زمل بوك
+                        </div>
+                        
+                        <!--<div class="form-text small mb-3 text-center">
+                            نصيحتي هيا : سير تحوى 
+                        </div>-->
+                        
+                        <!--<button id="saveSettingsBtn" class="btn btn-success w-100 mt-2">
+                            <i class="fas fa-save me-1"></i>حفظ الإعدادات اراص القلاوي
+                        </button>-->
+                    </div>
+                </div>
+                
+                <!--<div class="card shadow-sm mt-3">
+                    <div class="card-header">
+                        <i class="fas fa-brain me-1"></i>التعلم
+                    </div>
+                    <div class="card-body">
+                        <p>لي تعلم من راص الزب: <span id="learningCount" class="badge bg-info">0</span></p>
+                        <button id="showLearningBtn" class="btn btn-outline-secondary btn-sm">
+                            عرض زبوبا 
+                        </button>
+                    </div>
+                </div>-->
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal for displaying learning items -->
+    <div class="modal fade" id="learningModal" tabindex="-1" aria-labelledby="learningModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="learningModalLabel">لي تعلم منك </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="learningItems" class="list-group">
+                        <!-- Learning items will be added here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">سد تحوى</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- اضافة مكتبة Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
